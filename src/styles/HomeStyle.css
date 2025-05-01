@@ -7,6 +7,7 @@
     background-attachment: fixed;
     padding-top: 170px;
     padding-bottom: 90px;
+    /* height: 1000px; */
 }
 
 .hero_section .price_badge{
@@ -54,6 +55,54 @@
     padding: 0 5%;
 }
 
+/* Home About Setion */
+.about_section{
+    padding-top: 80px;
+    padding-bottom: 300px;
+    background: url('../assets/about/about-1.jpg') no-repeat center center;
+    background-size: cover;
+    width: 100%;
+}
+.about_section h2{
+    font-size: 3.5rem;
+}
+.about_section p{
+    color: var(--grey);
+    padding: 20px 30px;
+    font-size: 19px;
+}
+.about_wrapper{
+    background: var(--yellow);
+    padding-top: 70px;
+    padding-bottom: 30px;
+}
+.about_box .about_icon img{
+    max-width: 25%;
+}
+.about_box h4{
+    font-size: 26px;
+    line-height: 1;
+    letter-spacing: 0.5008px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+.about_box p{
+    padding: 0 20px;
+}
+/* Media Query Mobile */
+
+@media (max-width: 992px){
+
+    .about_section h2{
+        font-size: 2.5rem;
+    }
+    .about_section p{
+        padding: 20px 0;
+    }
+    .about_box p{
+        padding: 0;
+    }
+}
 /* Media Query */
 
 @media (max-width: 767px){
