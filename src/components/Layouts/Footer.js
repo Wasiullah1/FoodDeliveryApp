@@ -1,8 +1,27 @@
-import React from 'react'
-import { Container, Row, Col, Carousel } from 'react-bootstrap';
+import React, { useEffect, useState } from 'react'
+import { Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 function Footer() {
+
+  const [isVisible,setIsVisible] = useState(false);
+  const scrollTop =()=>{
+    window.scrollTo({
+      top:0,
+      behavior: 'smooth',
+    })
+  }
+
+  const listenToScroll = () =>{
+    let heightToHidden = 250;
+    const windowScroll = document.body.scrollTop || document.documentElement.scrollTop;
+
+    windowScroll > heightToHidden ? setIsVisible(true) : setIsVisible(false);
+  }
+
+  useEffect(()=>{
+    window.addEventListener("scroll", listenToScroll)
+  })
   return (
     <>
     <footer>
@@ -42,22 +61,22 @@ function Footer() {
               <ul className='list-unstyled text-center mt-2'>
                 <li>
                   <Link to='/'>
-                    <i className='bi-bi-facebook'></i>
+                    <i className='bi bi-facebook'></i>
                   </Link>
                 </li>
                 <li>
                   <Link to='/'>
-                    <i className='bi-bi-twitter'></i>
+                    <i className='bi bi-twitter'></i>
                   </Link>
                 </li>
                 <li>
                   <Link to='/'>
-                    <i className='bi-bi-instagram'></i>
+                    <i className='bi bi-instagram'></i>
                   </Link>
                 </li>
                 <li>
                   <Link to='/'>
-                    <i className='bi-bi-youtube'></i>
+                    <i class='bi bi-youtube'></i>
                   </Link>
                 </li>
               </ul>
@@ -94,6 +113,15 @@ function Footer() {
         </Row>
       </Container>
     </footer>
+
+    {/* Scroll Top */}
+
+    {isVisible && ( 
+      <div className='scroll_top' onClick={scrollTop}>
+      <i class='bi bi-arrow-up'></i>
+    </div>
+    )}
+    
     </>
   )
 }
